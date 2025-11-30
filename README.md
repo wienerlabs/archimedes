@@ -6,7 +6,7 @@ Incremental Homomorphic Commitments for Verifiable State Transitions
 
 ARCHIMEDES is a cryptographic protocol that enables efficient verification of sequential computations through homomorphic commitment schemes. The system provides cryptographic guarantees for state machine transitions while reducing verification overhead from linear to constant time complexity.
 
-<img width="100" height="100" alt="curve" src="https://github.com/user-attachments/assets/1e31578b-fc45-4eef-986f-18147def1291" />
+<img width="300" height="300" alt="curve" src="https://github.com/user-attachments/assets/1e31578b-fc45-4eef-986f-18147def1291" />
 
 ## Problem Domain
 
