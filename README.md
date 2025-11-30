@@ -1,8 +1,7 @@
-# ARCHIMEDES
-
-Incremental Homomorphic Commitments for Verifiable State Transitions
-
 <img width="300" height="300" alt="archi" src="https://github.com/user-attachments/assets/d024f4ea-30fc-4fc7-beae-c2aa72f5012c" />
+
+---
+Incremental Homomorphic Commitments for Verifiable State Transitions
 
 ## Overview
 
