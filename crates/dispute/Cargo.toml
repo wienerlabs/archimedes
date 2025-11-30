@@ -1,0 +1,22 @@
+[package]
+name = "archimedes-dispute"
+version.workspace = true
+edition.workspace = true
+authors.workspace = true
+license.workspace = true
+description = "Dispute resolution engine for Archimedes protocol"
+
+[dependencies]
+archimedes-core = { path = "../core" }
+archimedes-state = { path = "../state" }
+ark-ff.workspace = true
+ark-ec.workspace = true
+ark-std.workspace = true
+ark-serialize.workspace = true
+ark-ed-on-bls12-381.workspace = true
+serde.workspace = true
+thiserror.workspace = true
+
+[dev-dependencies]
+rand.workspace = true
+

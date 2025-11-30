@@ -1,0 +1,24 @@
+[package]
+name = "archimedes-state"
+version.workspace = true
+edition.workspace = true
+authors.workspace = true
+license.workspace = true
+description = "State encoding and Merkle tree implementation for Archimedes"
+
+[dependencies]
+archimedes-core = { path = "../core" }
+ark-ff.workspace = true
+ark-ec.workspace = true
+ark-std.workspace = true
+ark-serialize.workspace = true
+ark-ed-on-bls12-381.workspace = true
+ark-crypto-primitives.workspace = true
+serde.workspace = true
+thiserror.workspace = true
+sha2.workspace = true
+
+[dev-dependencies]
+rand.workspace = true
+hex.workspace = true
+
