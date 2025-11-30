@@ -21,4 +21,8 @@ blake2.workspace = true
 [dev-dependencies]
 rand.workspace = true
 hex.workspace = true
+criterion = "0.5"
 
+[[bench]]
+name = "commitment_bench"
+harness = false
