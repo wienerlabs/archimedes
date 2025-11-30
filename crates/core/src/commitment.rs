@@ -1,11 +1,12 @@
-use ark_ec::CurveGroup;
 use ark_ed_on_bls12_381::{EdwardsProjective as G, Fr as ScalarField};
 use ark_ff::UniformRand;
 use ark_serialize::{CanonicalDeserialize, CanonicalSerialize};
 use ark_std::rand::Rng;
-use serde::{Deserialize, Serialize};
+use ark_std::Zero;
 
-use crate::errors::{ArchimedesError, Result};
+use crate::errors::ArchimedesError;
+
+pub type CommitmentResult<T> = std::result::Result<T, ArchimedesError>;
 
 #[derive(Clone, Debug, PartialEq, Eq, CanonicalSerialize, CanonicalDeserialize)]
 pub struct CommitmentParams {
@@ -26,7 +27,7 @@ pub struct Opening {
 }
 
 impl CommitmentParams {
-    pub fn setup<R: Rng>(rng: &mut R) -> Result<Self> {
+    pub fn setup<R: Rng>(rng: &mut R) -> CommitmentResult<Self> {
         let g = G::rand(rng);
         let h = G::rand(rng);
 
@@ -39,18 +40,18 @@ impl CommitmentParams {
         Ok(Self { g, h })
     }
 
-    pub fn commit<R: Rng>(&self, value: &ScalarField, rng: &mut R) -> Result<(Commitment, Randomness)> {
+    pub fn commit<R: Rng>(&self, value: &ScalarField, rng: &mut R) -> CommitmentResult<(Commitment, Randomness)> {
         let r = ScalarField::rand(rng);
         let commitment = self.commit_with_randomness(value, &Randomness(r.clone()))?;
         Ok((commitment, Randomness(r)))
     }
 
-    pub fn commit_with_randomness(&self, value: &ScalarField, randomness: &Randomness) -> Result<Commitment> {
+    pub fn commit_with_randomness(&self, value: &ScalarField, randomness: &Randomness) -> CommitmentResult<Commitment> {
         let c = self.g * value + self.h * randomness.0;
         Ok(Commitment(c))
     }
 
-    pub fn verify(&self, commitment: &Commitment, opening: &Opening) -> Result<bool> {
+    pub fn verify(&self, commitment: &Commitment, opening: &Opening) -> CommitmentResult<bool> {
         let expected = self.commit_with_randomness(&opening.value, &opening.randomness)?;
         Ok(commitment.0 == expected.0)
     }

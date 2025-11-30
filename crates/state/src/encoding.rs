@@ -1,11 +1,12 @@
 use ark_ed_on_bls12_381::Fr as ScalarField;
 use ark_ff::PrimeField;
-use ark_serialize::{CanonicalDeserialize, CanonicalSerialize};
-use archimedes_core::errors::{ArchimedesError, Result};
+use archimedes_core::ArchimedesError;
 use serde::{Deserialize, Serialize};
 use sha2::{Digest, Sha256};
 
-#[derive(Clone, Debug, PartialEq, Eq, Serialize, Deserialize, CanonicalSerialize, CanonicalDeserialize)]
+type Result<T> = std::result::Result<T, ArchimedesError>;
+
+#[derive(Clone, Debug, PartialEq, Eq, Serialize, Deserialize)]
 pub struct AccountState {
     pub balance: u128,
     pub nonce: u64,

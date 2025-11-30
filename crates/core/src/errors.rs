@@ -1,6 +1,6 @@
 use thiserror::Error;
 
-#[derive(Error, Debug)]
+#[derive(Error, Debug, Clone)]
 pub enum ArchimedesError {
     #[error("Commitment setup failed: {0}")]
     SetupError(String),
@@ -29,6 +29,4 @@ pub enum ArchimedesError {
     #[error("Dispute resolution error: {0}")]
     DisputeError(String),
 }
-
-pub type Result<T> = std::result::Result<T, ArchimedesError>;
 

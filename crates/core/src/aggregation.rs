@@ -1,10 +1,11 @@
 use ark_ed_on_bls12_381::Fr as ScalarField;
-use ark_serialize::{CanonicalDeserialize, CanonicalSerialize};
 
 use crate::commitment::{Commitment, CommitmentParams, Opening, Randomness};
-use crate::errors::{ArchimedesError, Result};
+use crate::errors::ArchimedesError;
 
-#[derive(Clone, Debug, CanonicalSerialize, CanonicalDeserialize)]
+type Result<T> = std::result::Result<T, ArchimedesError>;
+
+#[derive(Clone, Debug)]
 pub struct AggregateCommitment {
     pub commitment: Commitment,
     pub count: usize,

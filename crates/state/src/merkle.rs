@@ -1,6 +1,7 @@
-use archimedes_core::errors::{ArchimedesError, Result};
-use archimedes_core::{AggregateCommitment, Commitment};
+use archimedes_core::{AggregateCommitment, ArchimedesError, Commitment};
 use sha2::{Digest, Sha256};
+
+type Result<T> = std::result::Result<T, ArchimedesError>;
 
 #[derive(Clone, Debug)]
 pub struct MerkleNode {
