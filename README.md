@@ -215,32 +215,6 @@ All assumptions are standard in contemporary cryptographic literature with decad
 
 **Eclipse attacks:** Network partitioning to hide invalid commitments. Standard peer-to-peer network security measures apply - outside ARCHIMEDES scope.
 
-## Development Roadmap
-
-### Phase 1: Cryptographic Library (Months 1-3)
-- Implement BLS12-381 curve operations
-- Pedersen commitment scheme
-- Pairing computation optimizations
-- Comprehensive test vectors
-
-### Phase 2: State Encoding (Months 4-6)
-- Design arithmetic circuit representation for state transitions
-- Implement EVM opcode encoding functions
-- Validate homomorphism preservation
-- Benchmark encoding efficiency
-
-### Phase 3: Protocol Implementation (Months 7-9)
-- Commitment generation pipeline
-- Aggregation algorithms
-- Verification logic
-- Dispute resolution mechanism
-
-### Phase 4: Integration and Testing (Months 10-12)
-- Integration with EVM execution environment
-- Stress testing with production transaction traces
-- Security audit by external cryptography firm
-- Performance optimization
-
 ## System Requirements
 
 ### Computational Resources
